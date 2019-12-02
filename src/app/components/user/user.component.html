@@ -43,24 +43,6 @@
     </div>
 
     <button type="submit" [disabled]="!userForm.valid">Submit</button>
-    <!-- <button (click)="signIn()">Sign In</button> -->
 </form>
 
-<div *ngIf="userDisplay">
-    <div *ngFor="let user of users; index as i">
-        <!-- {{ username.value }}
-        {{ email.value }}
-        {{ password.value }}
-        {{ street.value }}
-        {{ postal.value }}
-        {{ city.value }} -->
-        <h2>User {{i+1}}</h2>
-        <p>{{user.username}}</p>
-        <p>{{user.email}}</p>
-        <p>{{user.password}}</p>
-        <p>{{user.street}}</p>
-        <p>{{user.postal}}</p>
-        <p>{{user.city}}</p>
-    </div> 
-</div>
 
