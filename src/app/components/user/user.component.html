@@ -1,45 +1,50 @@
 <h1>{{ title }}</h1>
 
-<div>
-    <label>
-        Username:
-        <input type="text" [formControl]="username">
-    </label>
-</div>
 
-<div>
-    <label>
-        Email:
-        <input type="text" [formControl]="email">
-    </label>
-</div>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label>
+            Username:
+            <input type="text" formControlName="username">
+        </label>
+    </div>
 
-<div>
-    <label>
-        Password:
-        <input type="text" [formControl]="password">
-    </label>
-</div>
+    <div formGroupName="credentials">
+        <div>
+            <label>
+                Email:
+                <input type="text" formControlName="email">
+            </label>
+        </div>
 
-<div>
-    <label>
-        Street:
-        <input type="text" [formControl]="street">
-    </label>
+        <div>
+            <label>
+                Password:
+                <input type="text" formControlName="password">
+            </label>
+        </div>
+    </div>
 
-    <label>
-        Postal Code:
-        <input type="text" [formControl]="postal">
-    </label>
+    <div formGroupName="address">
+        <label>
+            Street:
+            <input type="text" formControlName="street">
+        </label>
 
-    <label>
-        City:
-        <input type="text" [formControl]="city">
-    </label>
-</div>
+        <label>
+            Postal Code:
+            <input type="text" formControlName="postal">
+        </label>
 
+        <label>
+            City:
+            <input type="text" formControlName="city">
+        </label>
+    </div>
 
-<button (click)="signIn()">Sign In</button>
+    <button type="submit" [disabled]="!userForm.valid">Submit</button>
+    <!-- <button (click)="signIn()">Sign In</button> -->
+</form>
 
 <div *ngIf="userDisplay">
     <div *ngFor="let user of users; index as i">
