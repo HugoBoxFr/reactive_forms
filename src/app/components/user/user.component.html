@@ -1,0 +1,61 @@
+<h1>{{ title }}</h1>
+
+<div>
+    <label>
+        Username:
+        <input type="text" [formControl]="username">
+    </label>
+</div>
+
+<div>
+    <label>
+        Email:
+        <input type="text" [formControl]="email">
+    </label>
+</div>
+
+<div>
+    <label>
+        Password:
+        <input type="text" [formControl]="password">
+    </label>
+</div>
+
+<div>
+    <label>
+        Street:
+        <input type="text" [formControl]="street">
+    </label>
+
+    <label>
+        Postal Code:
+        <input type="text" [formControl]="postal">
+    </label>
+
+    <label>
+        City:
+        <input type="text" [formControl]="city">
+    </label>
+</div>
+
+
+<button (click)="signIn()">Sign In</button>
+
+<div *ngIf="userDisplay">
+    <div *ngFor="let user of users; index as i">
+        <!-- {{ username.value }}
+        {{ email.value }}
+        {{ password.value }}
+        {{ street.value }}
+        {{ postal.value }}
+        {{ city.value }} -->
+        <h2>User {{i+1}}</h2>
+        <p>{{user.username}}</p>
+        <p>{{user.email}}</p>
+        <p>{{user.password}}</p>
+        <p>{{user.street}}</p>
+        <p>{{user.postal}}</p>
+        <p>{{user.city}}</p>
+    </div> 
+</div>
+
